@@ -1,4 +1,9 @@
+pytest
+pytest-cov
+pytest-pep8
+pytest-pythonpath
 requests
 responses
 sphinx
+sphinxcontrib-seqdiag
 tox

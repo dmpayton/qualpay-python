@@ -1,5 +1,5 @@
 ===============
-Getting Started
+Getting started
 ===============
 
 Installation
@@ -18,7 +18,6 @@ Authentication
 
     qualpay.merchant_id = '<your merchant id>'
     qualpay.security_key = '<your security key>'
-
 
 Using the test gateway
 ======================

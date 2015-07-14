@@ -2,8 +2,8 @@
 Reference
 =========
 
-Core functions
-==============
+Payment gateway functions
+=========================
 
 .. autofunction:: qualpay.authorize
 
@@ -38,8 +38,8 @@ qualpay.PaymentGateway
 Exceptions
 ==========
 
-.. autoexception:: qualpay.error.APIError
+.. autoexception:: qualpay.APIError
 
-.. autoexception:: qualpay.error.GatewayError
+.. autoexception:: qualpay.GatewayError
 
-.. autoexception:: qualpay.error.HttpError
+.. autoexception:: qualpay.HttpError
