@@ -1,4 +1,7 @@
+import datetime
 import json
+import qualpay
+import unittest
 
 # Test credit cards
 TEST_CARDS = {
@@ -10,6 +13,7 @@ TEST_CARDS = {
     'jcb': '3530 1420 1995 5809',
 }
 
+# Example responses for API endpoints
 RESPONSE = {
     'authorize': json.dumps({
         'rcode': '000',
@@ -54,3 +58,16 @@ RESPONSE = {
         'pg_id': '65824102480c11e484b20c4de99f0aaf'
     })
 }
+
+
+class QualpayTests(unittest.TestCase):
+    def setUp(self):
+        qualpay.merchant_id = 'test'
+        qualpay.security_key = 'TEST1234567890'
+        qualpay.base_endpoint = 'https://api-test.qualpay.com'
+
+        today = datetime.date.today()
+        self.month = today.month
+        self.year = today.year
+
+        super(QualpayTests, self).setUp()

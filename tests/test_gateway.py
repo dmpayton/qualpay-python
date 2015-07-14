@@ -3,21 +3,10 @@ import qualpay
 import responses
 import unittest
 
-from .utils import RESPONSE, TEST_CARDS
+from .utils import RESPONSE, TEST_CARDS, QualpayTests
 
 
-class GatewayTests(unittest.TestCase):
-    def setUp(self):
-        qualpay.merchant_id = 'test'
-        qualpay.security_key = 'TEST1234567890'
-        qualpay.base_endpoint = 'https://api-test.qualpay.com'
-
-        today = datetime.date.today()
-        self.month = today.month
-        self.year = today.year
-
-        super(GatewayTests, self).setUp()
-
+class GatewayTests(QualpayTests):
     @responses.activate
     def test_authorize(self):
         endpoint = 'https://api-test.qualpay.com/pg/auth'
