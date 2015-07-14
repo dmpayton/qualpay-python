@@ -1,4 +1,5 @@
-# qualpay-python
+qualpay-python
+==============
 
 [Python](https://www.python.org/) bindings for [Qualpay](https://www.qualpay.com/)
 
@@ -7,12 +8,12 @@
 [![codecov.io](http://codecov.io/github/dmpayton/qualpay-python/coverage.svg?branch=master)](http://codecov.io/github/dmpayton/qualpay-python?branch=master)
 
 Documentation
-=============
+-------------
 
 [qualpay-python.readthedocs.org](https://qualpay-python.readthedocs.org/)
 
 Basic Usage
-===========
+-----------
 
 ```
 >>> import qualpay
