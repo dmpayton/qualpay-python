@@ -125,7 +125,7 @@ class PaymentGateway(object):
 
 def gateway_method(method):
     @functools.wraps(getattr(PaymentGateway, method))
-    def wrapper(*args, **kwargs):
+    def wrapper(**kwargs):
         gateway = PaymentGateway()
         return getattr(gateway, method)(*args, **kwargs)
     return wrapper
