@@ -6,6 +6,9 @@ env:
   - TOXENV=coverage
 
 install:
-  - pip install tox
+  - pip install tox codecov
 
 script: tox
+
+after_success:
+  codecov
