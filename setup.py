@@ -10,10 +10,11 @@ except ImportError:
 
 setup(
     name='qualpay',
-    version='0.1.0',
+    version='1.0.0',
     author='Derek Payton',
     author_email='derek.payton@gmail.com',
     description='Python bindings for Qualpay',
+    keywords='payment processing qualpay',
     license='MIT',
     url='https://github.com/dmpayton/qualpay-python',
     classifiers=[
@@ -21,9 +22,10 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.4",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    packages=find_packages(),
+    packages=find_packages('qualpay'),
     install_requires=['requests'],
 )

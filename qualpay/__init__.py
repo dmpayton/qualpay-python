@@ -1,5 +1,8 @@
-
+__author__ = 'Derek Payton <derek.payton@gmail.com>'
+__copyright__ = 'Copyright (c) Derek Payton'
+__description__ = 'Python bindings for Qualpay'
 __version__ = '1.0.0'
+__license__ = 'MIT License'
 
 merchant_id = None
 secret_key = None
