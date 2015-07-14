@@ -41,11 +41,11 @@ class APIRequestor(object):
         )
 
         if response.status_code != 200:
-            raise HttpError(response.status_code)
+            raise HttpError(response.status_code, response)
 
         data = response.json()
-        if data['rcode'] != '000':
-            raise GatewayError(data['rcode'])
+        if not data['rcode'].startswith('0'):
+            raise GatewayError(data['rcode'], response)
 
         return data
 

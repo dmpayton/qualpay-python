@@ -34,18 +34,29 @@ HTTP_ERROR_CODES = {
 
 
 class APIError(Exception):
+    """
+    Base exception from which all other Qualpay exceptions inherit.
+    """
     pass
 
 
 class GatewayError(APIError):
-    def __init__(self, code):
+    """
+    Raised when the payment gateway returns a non-success code.
+    """
+    def __init__(self, code, response):
         self.code = code
+        self.response = response
         message = GATEWAY_ERROR_CODES.get(str(code), 'Unknown Error')
-        super(HttpError, self).__init__(message)
+        super(GatewayError, self).__init__(message)
 
 
 class HttpError(APIError):
-    def __init__(self, code):
+    """
+    Raised when the payment gateway returns a non-200 response.
+    """
+    def __init__(self, code, response):
         self.code = code
+        self.response = response
         message = HTTP_ERROR_CODES.get(str(code), 'Unknown Error')
         super(HttpError, self).__init__(message)

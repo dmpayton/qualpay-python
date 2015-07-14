@@ -123,7 +123,7 @@ class Card(object):
     def verify(self, **kwargs):
         assert self.is_valid  # CONSIDER: What should this raise?
         gateway = PaymentGateway()
-        return gateway.authorize(
+        return gateway.verify(
             card_number=self.number,
             exp_date=self.exp_date.mmyy,
             cvv2=self.cvv2,
