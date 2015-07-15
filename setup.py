@@ -10,7 +10,7 @@ except ImportError:
 
 setup(
     name='qualpay',
-    version='1.0.0',
+    version='1.0.1',
     author='Derek Payton',
     author_email='derek.payton@gmail.com',
     description='Python bindings for Qualpay',
