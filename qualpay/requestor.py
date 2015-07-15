@@ -4,6 +4,7 @@ import requests
 
 from . import __version__
 from .compat import urljoin
+from .encoder import SmartJSONEncoder
 from .error import GatewayError, HttpError
 
 __all__ = ('APIRequestor',)
@@ -60,4 +61,4 @@ class APIRequestor(object):
             'merchant_id': self.merchant_id,
             'security_key': self.security_key,
         })
-        return json.dumps(data)
+        return json.dumps(data, cls=SmartJSONEncoder)
