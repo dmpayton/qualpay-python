@@ -127,7 +127,7 @@ def gateway_method(method):
     @functools.wraps(getattr(PaymentGateway, method))
     def wrapper(**kwargs):
         gateway = PaymentGateway()
-        return getattr(gateway, method)(*args, **kwargs)
+        return getattr(gateway, method)(**kwargs)
     return wrapper
 
 authorize = gateway_method('authorize')

@@ -18,6 +18,12 @@ class CardTests(QualpayTests):
 
         card = qualpay.Card('asdf 123', self.month, self.year, '111')
         self.assertFalse(card.is_luhn_valid)
+        self.assertEqual(card.mask, 'invalid')
+
+    def test_missing_number(self):
+        card = qualpay.Card('', self.month, self.year, '111')
+        self.assertFalse(card.is_luhn_valid)
+        self.assertEqual(card.mask, 'invalid')
 
     def test_mask(self):
         card = qualpay.Card(TEST_CARDS['visa'], self.month, self.year, '111')
@@ -66,6 +72,21 @@ class CardTests(QualpayTests):
         assert responses.calls[0].request.url == endpoint
 
     @responses.activate
+    def test_gateway_verify(self):
+        endpoint = 'https://api-test.qualpay.com/pg/verify'
+        responses.add(responses.POST, endpoint, body=RESPONSE['verify'],
+            content_type='application/json')
+
+        card = qualpay.Card(TEST_CARDS['visa'], self.month, self.year, '111')
+        response = card.verify()
+
+        assert isinstance(response, dict)
+        assert response.get('rcode') == '085'
+
+        assert len(responses.calls) == 1
+        assert responses.calls[0].request.url == endpoint
+
+    @responses.activate
     def test_gateway_sale(self):
         endpoint = 'https://api-test.qualpay.com/pg/sale'
         responses.add(responses.POST, endpoint, body=RESPONSE['sale'],
@@ -94,7 +115,3 @@ class CardTests(QualpayTests):
 
         assert len(responses.calls) == 1
         assert responses.calls[0].request.url == endpoint
-
-
-if __name__ == '__main__':
-    unittest.main()

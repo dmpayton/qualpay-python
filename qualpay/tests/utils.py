@@ -21,6 +21,14 @@ RESPONSE = {
         'pg_id': '8af556ae480811e484b20c4de99f0aaf'
     }),
 
+    'verify': json.dumps({
+        'auth_code': 'T42069',
+        'auth_cvv2_result': 'M',
+        'pg_id': 'e8418d1d706cd73548f9f16f1d55ad6e',
+        'rcode': '085',
+        'rmsg': 'No reason to decline TT42069'
+    }),
+
     'capture': json.dumps({
         'rcode': '000',
         'rmsg': 'Capture request accepted',
@@ -56,6 +64,12 @@ RESPONSE = {
         'rcode': '000',
         'rmsg': 'Force transaction accepted',
         'pg_id': '65824102480c11e484b20c4de99f0aaf'
+    }),
+
+    'error': json.dumps({
+        'rcode': '999',
+        'rmsg': 'Internal error',
+        'pg_id': 'cb5e100e5a9a3e7f6d1fd97512215282'
     })
 }
 

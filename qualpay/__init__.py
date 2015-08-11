@@ -5,7 +5,7 @@ __version__ = '1.0.1'
 __license__ = 'MIT License'
 
 merchant_id = None
-secret_key = None
+security_key = None
 base_endpoint = 'https://api.qualpay.com'
 
 from .card import Card

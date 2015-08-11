@@ -1,6 +1,6 @@
 import json
 
-__all__ = ('SmarkJSONEncoder',)
+__all__ = ('SmartJSONEncoder',)
 
 
 def is_aware(value):

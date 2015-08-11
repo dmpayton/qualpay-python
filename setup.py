@@ -26,6 +26,6 @@ setup(
         "Programming Language :: Python :: 3.4",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    packages=find_packages(include=('qualpay',)),
+    packages=find_packages(),
     install_requires=['requests'],
 )
